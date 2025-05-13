@@ -1,0 +1,5 @@
+# ninja log v5
+0	8	0	/Users/riteshksingh/Documents/Development/graphQlUsage/android/app/.cxx/Debug/4y202y1z/x86_64/CMakeFiles/cmake.verify_globs	2a95878490506fca
+0	1297	1745959285301902820	CMakeFiles/appmodules.dir/Users/riteshksingh/Documents/Development/graphQlUsage/android/app/build/generated/autolinking/src/main/jni/autolinking.cpp.o	1f76ed8271fd5731
+0	1411	1745959285415526854	CMakeFiles/appmodules.dir/OnLoad.cpp.o	c351ee9164fdc2c7
+1411	1475	1745959285483318021	/Users/riteshksingh/Documents/Development/graphQlUsage/android/app/build/intermediates/cxx/Debug/4y202y1z/obj/x86_64/libappmodules.so	e6fd3b4fdf9eaf7a

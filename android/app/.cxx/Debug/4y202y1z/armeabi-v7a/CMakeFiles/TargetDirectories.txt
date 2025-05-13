@@ -1,0 +1,3 @@
+/Users/riteshksingh/Documents/Development/graphQlUsage/android/app/.cxx/Debug/4y202y1z/armeabi-v7a/CMakeFiles/appmodules.dir
+/Users/riteshksingh/Documents/Development/graphQlUsage/android/app/.cxx/Debug/4y202y1z/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/riteshksingh/Documents/Development/graphQlUsage/android/app/.cxx/Debug/4y202y1z/armeabi-v7a/CMakeFiles/rebuild_cache.dir
