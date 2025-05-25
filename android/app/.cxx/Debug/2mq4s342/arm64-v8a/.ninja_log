@@ -1,0 +1,7 @@
+# ninja log v5
+0	13	0	/Users/riteshksingh/Documents/Development/react-native-graphql-usage-code-structure/android/app/.cxx/Debug/2mq4s342/arm64-v8a/CMakeFiles/cmake.verify_globs	c53743628a3c51ef
+0	2163	1748171481088879264	CMakeFiles/appmodules.dir/Users/riteshksingh/Documents/Development/react-native-graphql-usage-code-structure/android/app/build/generated/autolinking/src/main/jni/autolinking.cpp.o	970aad2212bc0278
+0	2336	1748171481266082100	CMakeFiles/appmodules.dir/OnLoad.cpp.o	1e954a97d3327fe7
+2337	2398	1748171481330401240	/Users/riteshksingh/Documents/Development/react-native-graphql-usage-code-structure/android/app/build/intermediates/cxx/Debug/2mq4s342/obj/arm64-v8a/libappmodules.so	380a470ca7d1c7b9
+1	36	0	/Users/riteshksingh/Documents/Development/react-native-graphql-usage-code-structure/android/app/.cxx/Debug/2mq4s342/arm64-v8a/CMakeFiles/cmake.verify_globs	c53743628a3c51ef
+0	101	0	/Users/riteshksingh/Documents/Development/react-native-graphql-usage-code-structure/android/app/.cxx/Debug/2mq4s342/arm64-v8a/CMakeFiles/cmake.verify_globs	c53743628a3c51ef

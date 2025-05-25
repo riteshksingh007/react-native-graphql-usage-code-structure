@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { HomeScreen, UsersScreen } from '../screens';
+import { HomeScreen, ScrollViewAnimation, UsersScreen } from '../screens';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { StatusBar, Text, useColorScheme } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
@@ -11,6 +11,7 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 type BottomTabParamList = {
     HomeStack: undefined;
     UsersStack: undefined;
+    AnimationStack : undefined;
 };
 
 // Define the type for the stack navigator's routes
@@ -24,12 +25,17 @@ type UsersStackParamList = {
     Profile: undefined; // Example additional screen for Users stack
 };
 
+type AnimationParamList = {
+    Animation: undefined; // Example additional screen for Animation stack
+};
+
 // Create the bottom tab navigator
 const Tab = createBottomTabNavigator<BottomTabParamList>();
 
 // Create stack navigators for each tab
 const HomeStack = createNativeStackNavigator<HomeStackParamList>();
 const UsersStack = createNativeStackNavigator<UsersStackParamList>();
+const AnimationStack = createNativeStackNavigator<AnimationParamList>();
 
 // Home Stack Navigator
 function HomeStackNavigator() {
@@ -46,6 +52,15 @@ function UsersStackNavigator() {
         <UsersStack.Navigator screenOptions={{ headerShown: false }}>
             <UsersStack.Screen name="Users" component={UsersScreen} options={{ title: 'Users' }} />
         </UsersStack.Navigator>
+    );
+}
+
+// Users Stack Navigator
+function AnimationStackNavigator() {
+    return (
+        <AnimationStack.Navigator screenOptions={{ headerShown: false }}>
+            <AnimationStack.Screen name="Animation" component={ScrollViewAnimation} options={{ title: 'Animation' }} />
+        </AnimationStack.Navigator>
     );
 }
 
@@ -70,6 +85,8 @@ export default function NavigationService() {
                             iconName = 'home';
                         } else if (route.name === 'UsersStack') {
                             iconName = 'people';
+                        }else if (route.name === 'AnimationStack') {
+                            iconName = 'paper-plane';
                         }
 
                         return <Ionicons name={iconName} size={size} color={color} />;
@@ -80,6 +97,7 @@ export default function NavigationService() {
             >
                 <Tab.Screen name="HomeStack" component={HomeStackNavigator} options={{ title: 'Home' }} />
                 <Tab.Screen name="UsersStack" component={UsersStackNavigator} options={{ title: 'Users' }} />
+                <Tab.Screen name="AnimationStack" component={AnimationStackNavigator} options={{ title: 'Animation' }} />
             </Tab.Navigator>
         </NavigationContainer>
     );

@@ -1,0 +1,3 @@
+/Users/riteshksingh/Documents/Development/react-native-graphql-usage-code-structure/android/app/.cxx/Debug/2mq4s342/x86/CMakeFiles/appmodules.dir
+/Users/riteshksingh/Documents/Development/react-native-graphql-usage-code-structure/android/app/.cxx/Debug/2mq4s342/x86/CMakeFiles/edit_cache.dir
+/Users/riteshksingh/Documents/Development/react-native-graphql-usage-code-structure/android/app/.cxx/Debug/2mq4s342/x86/CMakeFiles/rebuild_cache.dir
