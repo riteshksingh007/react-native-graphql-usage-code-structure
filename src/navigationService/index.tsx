@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { HomeScreen, ScrollViewAnimation, UsersScreen } from '../screens';
+import { DebitCardScreen, HomeScreen, ScrollViewAnimation, UsersScreen } from '../screens';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { StatusBar, Text, useColorScheme } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
@@ -11,7 +11,8 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 type BottomTabParamList = {
     HomeStack: undefined;
     UsersStack: undefined;
-    AnimationStack : undefined;
+    AnimationStack: undefined;
+    DebitCardStack: undefined;
 };
 
 // Define the type for the stack navigator's routes
@@ -29,6 +30,11 @@ type AnimationParamList = {
     Animation: undefined; // Example additional screen for Animation stack
 };
 
+type DebitCardParamList = {
+    DebitCard: undefined;
+};
+
+
 // Create the bottom tab navigator
 const Tab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -36,6 +42,7 @@ const Tab = createBottomTabNavigator<BottomTabParamList>();
 const HomeStack = createNativeStackNavigator<HomeStackParamList>();
 const UsersStack = createNativeStackNavigator<UsersStackParamList>();
 const AnimationStack = createNativeStackNavigator<AnimationParamList>();
+const DebitCardStack = createNativeStackNavigator<DebitCardParamList>();
 
 // Home Stack Navigator
 function HomeStackNavigator() {
@@ -55,7 +62,7 @@ function UsersStackNavigator() {
     );
 }
 
-// Users Stack Navigator
+// Animation Stack Navigator
 function AnimationStackNavigator() {
     return (
         <AnimationStack.Navigator screenOptions={{ headerShown: false }}>
@@ -64,17 +71,25 @@ function AnimationStackNavigator() {
     );
 }
 
+// Debit card UI Stack Navigator
+function DebitCardStackNavigator() {
+    return (
+        <DebitCardStack.Navigator screenOptions={{ headerShown: false }}>
+            <DebitCardStack.Screen name="DebitCard" component={DebitCardScreen} options={{ title: 'Debit Card' }} />
+        </DebitCardStack.Navigator>
+    );
+}
 export default function NavigationService() {
     const isDarkMode = useColorScheme() === 'dark';
     const backgroundStyle = {
         backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-      };
+    };
     return (
         <NavigationContainer>
             <StatusBar
-                    barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-                    backgroundColor={backgroundStyle.backgroundColor}
-                  />
+                barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+                backgroundColor={backgroundStyle.backgroundColor}
+            />
             <Tab.Navigator
                 initialRouteName="HomeStack"
                 screenOptions={({ route }) => ({
@@ -85,8 +100,10 @@ export default function NavigationService() {
                             iconName = 'home';
                         } else if (route.name === 'UsersStack') {
                             iconName = 'people';
-                        }else if (route.name === 'AnimationStack') {
+                        } else if (route.name === 'AnimationStack') {
                             iconName = 'paper-plane';
+                        }else if (route.name === 'DebitCardStack') {
+                            iconName = 'card-outline';
                         }
 
                         return <Ionicons name={iconName} size={size} color={color} />;
@@ -98,6 +115,7 @@ export default function NavigationService() {
                 <Tab.Screen name="HomeStack" component={HomeStackNavigator} options={{ title: 'Home' }} />
                 <Tab.Screen name="UsersStack" component={UsersStackNavigator} options={{ title: 'Users' }} />
                 <Tab.Screen name="AnimationStack" component={AnimationStackNavigator} options={{ title: 'Animation' }} />
+                <Tab.Screen name="DebitCardStack" component={DebitCardStackNavigator} options={{ title: 'Debit Card', headerShown: false }} />
             </Tab.Navigator>
         </NavigationContainer>
     );
