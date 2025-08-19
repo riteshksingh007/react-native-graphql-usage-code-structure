@@ -2,10 +2,11 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { DebitCardScreen, HomeScreen, ScrollViewAnimation, UsersScreen } from '../screens';
+import { DebitCardScreen, ScrollViewAnimation, UsersScreen } from '../screens';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { StatusBar, Text, useColorScheme } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import PaymentTransferScreen from '../screens/paymentTransfer';
 
 // Define the type for the bottom tab navigator's routes
 type BottomTabParamList = {
@@ -17,8 +18,7 @@ type BottomTabParamList = {
 
 // Define the type for the stack navigator's routes
 type HomeStackParamList = {
-    Home: undefined;
-    Details: undefined; // Example additional screen for Home stack
+    Payment: undefined;
 };
 
 type UsersStackParamList = {
@@ -47,8 +47,8 @@ const DebitCardStack = createNativeStackNavigator<DebitCardParamList>();
 // Home Stack Navigator
 function HomeStackNavigator() {
     return (
-        <HomeStack.Navigator screenOptions={{ headerShown: false }}>
-            <HomeStack.Screen name="Home" component={HomeScreen} options={{ title: 'Home' }} />
+        <HomeStack.Navigator screenOptions={{ headerShown: true }}>
+            <HomeStack.Screen name="Payment" component={PaymentTransferScreen} options={{ title: 'Payment Transfer' }} />
         </HomeStack.Navigator>
     );
 }
@@ -97,12 +97,12 @@ export default function NavigationService() {
                         let iconName: string = 'help'; // Default icon name
 
                         if (route.name === 'HomeStack') {
-                            iconName = 'home';
+                            iconName = 'cash-outline';
                         } else if (route.name === 'UsersStack') {
                             iconName = 'people';
                         } else if (route.name === 'AnimationStack') {
                             iconName = 'paper-plane';
-                        }else if (route.name === 'DebitCardStack') {
+                        } else if (route.name === 'DebitCardStack') {
                             iconName = 'card-outline';
                         }
 
@@ -112,10 +112,10 @@ export default function NavigationService() {
                     tabBarInactiveTintColor: 'gray',
                 })}
             >
-                <Tab.Screen name="HomeStack" component={HomeStackNavigator} options={{ title: 'Home' }} />
-                <Tab.Screen name="UsersStack" component={UsersStackNavigator} options={{ title: 'Users' }} />
-                <Tab.Screen name="AnimationStack" component={AnimationStackNavigator} options={{ title: 'Animation' }} />
+                <Tab.Screen name="HomeStack" component={HomeStackNavigator} options={{ title: 'Payment', headerShown: false }} />
                 <Tab.Screen name="DebitCardStack" component={DebitCardStackNavigator} options={{ title: 'Debit Card', headerShown: false }} />
+                <Tab.Screen name="AnimationStack" component={AnimationStackNavigator} options={{ title: 'Animation' }} />
+                <Tab.Screen name="UsersStack" component={UsersStackNavigator} options={{ title: 'Users' }} />
             </Tab.Navigator>
         </NavigationContainer>
     );

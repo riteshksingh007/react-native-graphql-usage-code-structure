@@ -59,6 +59,7 @@ export default function UsersScreen() {
     if (error) {
         return (
             <SafeAreaView style={styles.container}>
+                <Text>Welcome to User List of Manager and Admin Roles with graphql request</Text>
                 <Text style={{ color: 'red' }}>Error loading users: {error.message}</Text>
             </SafeAreaView>
         );
@@ -66,6 +67,7 @@ export default function UsersScreen() {
 
     return (
         <SafeAreaView style={styles.container}>
+            <Text>Welcome to User List of Manager and Admin Roles with graphql request</Text>
             <View style={styles.container}>
                 <Text style={styles.heading}>User Types</Text>
                 <RadioButton label="ADMIN" />
